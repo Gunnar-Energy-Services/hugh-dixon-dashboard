@@ -95,11 +95,11 @@ tfoot td{border-top:1px solid var(--line);border-bottom:none;font-family:var(--m
   <div class="asof" id="asof"></div>
 
   <div class="kpis">
-    <div class="kpi"><div class="lbl">Charges Logged</div><div class="val acc" id="kCharges">—</div><div class="foot">Jun 24–Jul 1 · 8 field days</div></div>
-    <div class="kpi"><div class="lbl">Awaiting Signature</div><div class="val warn" id="kUnsigned">—</div><div class="foot">no signed tickets yet</div></div>
+    <div class="kpi"><div class="lbl">Total Charges · All</div><div class="val acc" id="kGrand">—</div><div class="foot">operational + detailed design</div></div>
+    <div class="kpi"><div class="lbl">Operational Charges</div><div class="val" id="kOps">—</div><div class="foot">Jun 24–Jul 1 · 8 field days</div></div>
+    <div class="kpi"><div class="lbl">Detailed Design</div><div class="val" id="kDesign">—</div><div class="foot" id="kDesignFoot">—</div></div>
     <div class="kpi"><div class="lbl">Field Days Logged</div><div class="val" id="kDays">—</div><div class="foot">distinct ticket dates</div></div>
-    <div class="kpi"><div class="lbl">Outstanding Invoices</div><div class="val" id="kInv">—</div><div class="foot">10 invoices · Apr 7–Jun 20</div></div>
-    <div class="kpi"><div class="lbl">Awaiting Field Ticket</div><div class="val" style="color:var(--danger)" id="kInvOd">—</div><div class="foot">blocked before OpenInvoice</div></div>
+    <div class="kpi"><div class="lbl">Outstanding Invoices</div><div class="val warn" id="kInv">—</div><div class="foot">10 · awaiting field ticket</div></div>
   </div>
 </div>
 
@@ -232,23 +232,25 @@ const invoices = [
 
 document.getElementById('asof').textContent='Snapshot '+new Date().toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'})+' · refreshed as tickets are logged';
 
+// Detailed Design: Apr7–Jun20 invoiced (194.95 hrs) + Jun21–27 partial (3.00 hrs), pending Justin
+const detailedDesign={hours:197.95, amount:117532.8125};
 dailyCharges.forEach(c=>c.amount=c.qty*c.rate);
-const total=dailyCharges.reduce((s,c)=>s+c.amount,0);
+const total=dailyCharges.reduce((s,c)=>s+c.amount,0);   // operational
+const grand=total+detailedDesign.amount;                 // all charges
 const days=new Set(dailyCharges.map(c=>c.date)).size;
 const invTotal=invoices.reduce((s,i)=>s+i[3],0);
 const NOW=new Date();
 const daysOverdue=due=>Math.floor((NOW-new Date(due))/86400000);
-// current step = index of first incomplete stage (0-based); -1 if all done
 const curStep=st=>{for(let i=0;i<st.length;i++){if(!st[i])return i;} return -1;};
 const STATUS_LABEL=["Awaiting Field Ticket","Awaiting OI Approval","Ready to Submit","Awaiting Payment"];
 const STATUS_CLASS=["b-overdue","b-warn","b-billed","b-warn"];
 const invStatus=i=>{const c=curStep(i[5]); return c===-1?{label:"Paid",cls:"b-paid"}:{label:STATUS_LABEL[c],cls:STATUS_CLASS[c]};};
-const awaitingFT=invoices.filter(i=>curStep(i[5])===0).length;
-document.getElementById('kCharges').textContent=fmt0(total);
-document.getElementById('kUnsigned').textContent=fmt0(total);
+document.getElementById('kGrand').textContent=fmt0(grand);
+document.getElementById('kOps').textContent=fmt0(total);
+document.getElementById('kDesign').textContent=fmt0(detailedDesign.amount);
+document.getElementById('kDesignFoot').textContent=detailedDesign.hours.toFixed(2)+' hrs · pending Justin';
 document.getElementById('kDays').textContent=days;
 document.getElementById('kInv').textContent=fmt0(invTotal);
-document.getElementById('kInvOd').textContent=awaitingFT;
 
 // charges table
 const cb=document.getElementById('chgBody');
@@ -284,9 +286,10 @@ invoices.forEach(i=>{
 });
 document.getElementById('invTotal').textContent=fmt(invTotal);
 
-// category chart
+// category chart (includes Detailed Design in the overall)
 const cats={};
 dailyCharges.forEach(c=>cats[c.cat]=(cats[c.cat]||0)+c.amount);
+cats['Detailed Design']=detailedDesign.amount;
 new Chart(document.getElementById('catChart'),{
   type:'bar',
   data:{labels:Object.keys(cats),datasets:[{data:Object.values(cats),backgroundColor:'#FEEE00',borderWidth:0,barPercentage:.6}]},
