@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- deploy 2026-07-04 jul3 -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -91,12 +92,12 @@ tfoot td{border-top:1px solid var(--line);border-bottom:none;font-family:var(--m
 <div class="wrap">
   <div class="eyebrow"><span class="tick"></span> Relief Well Program · Daily Charge Tracking</div>
   <h1>Hugh Dixon #1 — Daily Charges</h1>
-  <div class="sub">Charge-based billing · field tickets logged against the DeadAhead™ wired-pipe relief well program. Ops through Jul 1.</div>
+  <div class="sub">Charge-based billing · field tickets logged against the DeadAhead™ wired-pipe relief well program. Ops through Jul 3.</div>
   <div class="asof" id="asof"></div>
 
   <div class="kpis">
     <div class="kpi"><div class="lbl">Total Charges · All</div><div class="val acc" id="kGrand">—</div><div class="foot">operational + detailed design</div></div>
-    <div class="kpi"><div class="lbl">Operational Charges</div><div class="val" id="kOps">—</div><div class="foot">Jun 24–Jul 1 · 8 field days</div></div>
+    <div class="kpi"><div class="lbl">Operational Charges</div><div class="val" id="kOps">—</div><div class="foot">Jun 24–Jul 3 · 10 field days</div></div>
     <div class="kpi"><div class="lbl">Detailed Design</div><div class="val" id="kDesign">—</div><div class="foot" id="kDesignFoot">—</div></div>
     <div class="kpi"><div class="lbl">Field Days Logged</div><div class="val" id="kDays">—</div><div class="foot">distinct ticket dates</div></div>
     <div class="kpi"><div class="lbl">Outstanding Invoices</div><div class="val warn" id="kInv">—</div><div class="foot">10 · awaiting field ticket</div></div>
@@ -177,7 +178,7 @@ const dailyCharges = [
  {date:"06/28",ticket:"FT 06/28",item:"1.3.6",desc:"M/L/Gyro/Ranging-WD Engineer",basis:"Standby",cat:"Personnel",qty:2,rate:1125},
  {date:"06/28",ticket:"FT 06/28",item:"1.3.7",desc:"Directional Driller",basis:"Standby",cat:"Personnel",qty:2,rate:1125},
  {date:"06/28",ticket:"FT 06/28",item:"1.3.8",desc:"Per Diem",basis:"",cat:"Personnel",qty:7,rate:250},
- {date:"06/28",ticket:"FT 06/28",item:"2.4.4",desc:"Gyro While Drilling Service",basis:"Standby",cat:"Equipment & Services",qty:1,rate:10800},
+ {date:"06/28",ticket:"FT 06/28",item:"2.4.3",desc:"Gyro While Drilling Service",basis:"Standby",cat:"Equipment & Services",qty:1,rate:10800},
  {date:"06/28",ticket:"FT 06/28",item:"3.1.1",desc:"Daily Rate Package",basis:"",cat:"ReelWell",qty:1,rate:15800},
  {date:"06/29",ticket:"FT 06/29",item:"1.3.1",desc:"Intercept Specialist",basis:"Operating",cat:"Personnel",qty:1,rate:7000},
  {date:"06/29",ticket:"FT 06/29",item:"1.3.3",desc:"Ranging Specialist",basis:"Operating",cat:"Personnel",qty:1,rate:5000},
@@ -185,7 +186,7 @@ const dailyCharges = [
  {date:"06/29",ticket:"FT 06/29",item:"1.3.6",desc:"M/L/Gyro/Ranging-WD Engineer",basis:"Operating",cat:"Personnel",qty:2,rate:1500},
  {date:"06/29",ticket:"FT 06/29",item:"1.3.7",desc:"Directional Driller",basis:"Operating",cat:"Personnel",qty:2,rate:1500},
  {date:"06/29",ticket:"FT 06/29",item:"1.3.8",desc:"Per Diem",basis:"",cat:"Personnel",qty:7,rate:250},
- {date:"06/29",ticket:"FT 06/29",item:"2.4.4",desc:"Gyro While Drilling Service",basis:"Standby",cat:"Equipment & Services",qty:1,rate:10800},
+ {date:"06/29",ticket:"FT 06/29",item:"2.4.3",desc:"Gyro While Drilling Service",basis:"Standby",cat:"Equipment & Services",qty:1,rate:10800},
  {date:"06/29",ticket:"FT 06/29",item:"3.1.1",desc:"Daily Rate Package",basis:"",cat:"ReelWell",qty:1,rate:15800},
  {date:"06/30",ticket:"FT 06/30",item:"1.3.1",desc:"Intercept Specialist",basis:"Operating",cat:"Personnel",qty:2,rate:7000},
  {date:"06/30",ticket:"FT 06/30",item:"1.3.3",desc:"Ranging Specialist",basis:"Operating",cat:"Personnel",qty:1,rate:5000},
@@ -193,7 +194,7 @@ const dailyCharges = [
  {date:"06/30",ticket:"FT 06/30",item:"1.3.6",desc:"M/L/Gyro/Ranging-WD Engineer",basis:"Operating",cat:"Personnel",qty:2,rate:1500},
  {date:"06/30",ticket:"FT 06/30",item:"1.3.7",desc:"Directional Driller",basis:"Operating",cat:"Personnel",qty:2,rate:1500},
  {date:"06/30",ticket:"FT 06/30",item:"1.3.8",desc:"Per Diem",basis:"",cat:"Personnel",qty:8,rate:250},
- {date:"06/30",ticket:"FT 06/30",item:"2.4.5",desc:"Gyro While Drilling Service",basis:"Operating",cat:"Equipment & Services",qty:1,rate:18000},
+ {date:"06/30",ticket:"FT 06/30",item:"2.4.3",desc:"Gyro While Drilling Service",basis:"Operating",cat:"Equipment & Services",qty:1,rate:18000},
  {date:"06/30",ticket:"FT 06/30",item:"2.6.12",desc:"UBHO Sub Rental",basis:"",cat:"Directional",qty:1,rate:80},
  {date:"06/30",ticket:"FT 06/30",item:"2.6.14",desc:"Float Valve",basis:"",cat:"Directional",qty:1,rate:775},
  {date:"06/30",ticket:"FT 06/30",item:"2.6.17",desc:"Thread Inspection",basis:"",cat:"Directional",qty:4,rate:225},
@@ -207,12 +208,41 @@ const dailyCharges = [
  {date:"07/01",ticket:"FT 07/01",item:"1.3.8",desc:"Per Diem",basis:"",cat:"Personnel",qty:10,rate:250},
  {date:"07/01",ticket:"FT 07/01",item:"2.2.2",desc:"Top Gun Software Package",basis:"",cat:"Lump Sum",qty:1,rate:18000},
  {date:"07/01",ticket:"FT 07/01",item:"2.2.3",desc:"PMR Setup",basis:"",cat:"Lump Sum",qty:1,rate:15000},
- {date:"07/01",ticket:"FT 07/01",item:"2.4.3",desc:"Wired Pipe Drilling (DeadAhead) (GWD, Gamma, Ranging, MWD)",basis:"Operating",cat:"Equipment & Services",qty:1,rate:60000},
+ {date:"07/01",ticket:"FT 07/01",item:"2.4.2",desc:"Wired Pipe Drilling (DeadAhead) (GWD, Gamma, Ranging, MWD)",basis:"Operating",cat:"Equipment & Services",qty:1,rate:60000},
  {date:"07/01",ticket:"FT 07/01",item:"2.6.10",desc:"8\" Gap Sub Rental",basis:"",cat:"Directional",qty:1,rate:335},
  {date:"07/01",ticket:"FT 07/01",item:"2.6.12",desc:"UBHO Sub Rental",basis:"",cat:"Directional",qty:1,rate:80},
  {date:"07/01",ticket:"FT 07/01",item:"2.6.17",desc:"Thread Inspection",basis:"",cat:"Directional",qty:2,rate:225},
  {date:"07/01",ticket:"FT 07/01",item:"2.6.18",desc:"Lithium Battery",basis:"",cat:"Directional",qty:2,rate:1875},
  {date:"07/01",ticket:"FT 07/01",item:"3.1.1",desc:"Daily Rate Package",basis:"",cat:"ReelWell",qty:1,rate:15800},
+ {date:"07/02",ticket:"FT 07/02",item:"1.3.1",desc:"Intercept Specialist",basis:"Operating",cat:"Personnel",qty:2,rate:7000},
+ {date:"07/02",ticket:"FT 07/02",item:"1.3.3",desc:"Ranging Specialist",basis:"Operating",cat:"Personnel",qty:2,rate:5000},
+ {date:"07/02",ticket:"FT 07/02",item:"1.3.4",desc:"Ranging Engineer",basis:"Operating",cat:"Personnel",qty:2,rate:3500},
+ {date:"07/02",ticket:"FT 07/02",item:"1.3.5",desc:"Wireline Gyro Survey Engineer",basis:"Standby",cat:"Personnel",qty:1,rate:1237.5},
+ {date:"07/02",ticket:"FT 07/02",item:"1.3.6",desc:"M/L/Gyro/Ranging-WD Engineer",basis:"Operating",cat:"Personnel",qty:2,rate:1500},
+ {date:"07/02",ticket:"FT 07/02",item:"1.3.7",desc:"Directional Driller",basis:"Operating",cat:"Personnel",qty:2,rate:1500},
+ {date:"07/02",ticket:"FT 07/02",item:"1.3.8",desc:"Per Diem",basis:"",cat:"Personnel",qty:10,rate:250},
+ {date:"07/02",ticket:"FT 07/02",item:"2.4.2",desc:"Wired Pipe Drilling (DeadAhead) (GWD, Gamma, Ranging, MWD)",basis:"Operating",cat:"Equipment & Services",qty:1,rate:60000},
+ {date:"07/02",ticket:"FT 07/02",item:"2.4.4",desc:"Gyro Wireline Survey Service",basis:"Standby",cat:"Equipment & Services",qty:1,rate:5000},
+ {date:"07/02",ticket:"FT 07/02",item:"2.4.5",desc:"7 Conductor Open Hole Wireline Truck",basis:"Standby",cat:"Equipment & Services",qty:1,rate:3300},
+ {date:"07/02",ticket:"FT 07/02",item:"2.6.10",desc:"8\" Gap Sub Rental",basis:"",cat:"Directional",qty:1,rate:335},
+ {date:"07/02",ticket:"FT 07/02",item:"2.6.12",desc:"UBHO Sub Rental",basis:"",cat:"Directional",qty:1,rate:80},
+ {date:"07/02",ticket:"FT 07/02",item:"2.6.16",desc:"Ditch Magnets",basis:"",cat:"Directional",qty:3,rate:75},
+ {date:"07/02",ticket:"FT 07/02",item:"3.1.1",desc:"Daily Rate Package",basis:"",cat:"ReelWell",qty:1,rate:15800},
+ {date:"07/03",ticket:"FT 07/03",item:"1.3.1",desc:"Intercept Specialist",basis:"Operating",cat:"Personnel",qty:2,rate:7000},
+ {date:"07/03",ticket:"FT 07/03",item:"1.3.3",desc:"Ranging Specialist",basis:"Operating",cat:"Personnel",qty:2,rate:5000},
+ {date:"07/03",ticket:"FT 07/03",item:"1.3.4",desc:"Ranging Engineer",basis:"Operating",cat:"Personnel",qty:2,rate:3500},
+ {date:"07/03",ticket:"FT 07/03",item:"1.3.5",desc:"Wireline Gyro Survey Engineer",basis:"Standby",cat:"Personnel",qty:1,rate:1237.5},
+ {date:"07/03",ticket:"FT 07/03",item:"1.3.6",desc:"M/L/Gyro/Ranging-WD Engineer",basis:"Operating",cat:"Personnel",qty:2,rate:1500},
+ {date:"07/03",ticket:"FT 07/03",item:"1.3.7",desc:"Directional Driller",basis:"Operating",cat:"Personnel",qty:2,rate:1500},
+ {date:"07/03",ticket:"FT 07/03",item:"1.3.8",desc:"Per Diem",basis:"",cat:"Personnel",qty:10,rate:250},
+ {date:"07/03",ticket:"FT 07/03",item:"2.4.2",desc:"Wired Pipe Drilling (DeadAhead) (GWD, Gamma, Ranging, MWD)",basis:"Operating",cat:"Equipment & Services",qty:1,rate:60000},
+ {date:"07/03",ticket:"FT 07/03",item:"2.4.4",desc:"Gyro Wireline Survey Service",basis:"Standby",cat:"Equipment & Services",qty:1,rate:5000},
+ {date:"07/03",ticket:"FT 07/03",item:"2.4.5",desc:"7 Conductor Open Hole Wireline Truck",basis:"Standby",cat:"Equipment & Services",qty:1,rate:3300},
+ {date:"07/03",ticket:"FT 07/03",item:"2.6.10",desc:"8\" Gap Sub Rental",basis:"",cat:"Directional",qty:1,rate:335},
+ {date:"07/03",ticket:"FT 07/03",item:"2.6.12",desc:"UBHO Sub Rental",basis:"",cat:"Directional",qty:1,rate:80},
+ {date:"07/03",ticket:"FT 07/03",item:"2.6.14",desc:"Float Valve",basis:"",cat:"Directional",qty:1,rate:775},
+ {date:"07/03",ticket:"FT 07/03",item:"2.6.16",desc:"Ditch Magnets",basis:"",cat:"Directional",qty:3,rate:75},
+ {date:"07/03",ticket:"FT 07/03",item:"3.1.1",desc:"Daily Rate Package",basis:"",cat:"ReelWell",qty:1,rate:15800},
 ];
 // n, period, NS inv, amount, dueDate, stages: [FT-Site, FT-OpenInvoice, Submitted-OpenInvoice, Paid]
 // current state: NONE have an approved field ticket — all sit at stage 1.
@@ -233,7 +263,7 @@ const invoices = [
 document.getElementById('asof').textContent='Snapshot '+new Date().toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'})+' · refreshed as tickets are logged';
 
 // Detailed Design: Apr7–Jun20 invoiced (194.95 hrs) + Jun21–27 partial (3.00 hrs), pending Justin
-const detailedDesign={hours:197.95, amount:117532.8125};
+const detailedDesign={hours:242.55, amount:144014.0625};
 dailyCharges.forEach(c=>c.amount=c.qty*c.rate);
 const total=dailyCharges.reduce((s,c)=>s+c.amount,0);   // operational
 const grand=total+detailedDesign.amount;                 // all charges
@@ -248,7 +278,7 @@ const invStatus=i=>{const c=curStep(i[5]); return c===-1?{label:"Paid",cls:"b-pa
 document.getElementById('kGrand').textContent=fmt0(grand);
 document.getElementById('kOps').textContent=fmt0(total);
 document.getElementById('kDesign').textContent=fmt0(detailedDesign.amount);
-document.getElementById('kDesignFoot').textContent=detailedDesign.hours.toFixed(2)+' hrs · pending Justin';
+document.getElementById('kDesignFoot').textContent=detailedDesign.hours.toFixed(2)+' hrs to date';
 document.getElementById('kDays').textContent=days;
 document.getElementById('kInv').textContent=fmt0(invTotal);
 
@@ -303,5 +333,3 @@ new Chart(document.getElementById('catChart'),{
 </script>
 </body>
 </html>
-
-<!-- redeploy 20260702T180141Z -->
