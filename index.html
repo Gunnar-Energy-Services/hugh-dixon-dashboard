@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- deploy 2026-07-04 jul3 -->
+<!-- deploy 2026-07-07 jul6 -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -92,12 +92,12 @@ tfoot td{border-top:1px solid var(--line);border-bottom:none;font-family:var(--m
 <div class="wrap">
   <div class="eyebrow"><span class="tick"></span> Relief Well Program · Daily Charge Tracking</div>
   <h1>Hugh Dixon #1 — Daily Charges</h1>
-  <div class="sub">Charge-based billing · field tickets logged against the DeadAhead™ wired-pipe relief well program. Ops through Jul 3.</div>
+  <div class="sub">Charge-based billing · field tickets logged against the DeadAhead™ wired-pipe relief well program. Ops through Jul 6.</div>
   <div class="asof" id="asof"></div>
 
   <div class="kpis">
     <div class="kpi"><div class="lbl">Total Charges · All</div><div class="val acc" id="kGrand">—</div><div class="foot">operational + detailed design</div></div>
-    <div class="kpi"><div class="lbl">Operational Charges</div><div class="val" id="kOps">—</div><div class="foot">Jun 24–Jul 3 · 10 field days</div></div>
+    <div class="kpi"><div class="lbl">Operational Charges</div><div class="val" id="kOps">—</div><div class="foot">Jun 24–Jul 7 · 14 days</div></div>
     <div class="kpi"><div class="lbl">Detailed Design</div><div class="val" id="kDesign">—</div><div class="foot" id="kDesignFoot">—</div></div>
     <div class="kpi"><div class="lbl">Field Days Logged</div><div class="val" id="kDays">—</div><div class="foot">distinct ticket dates</div></div>
     <div class="kpi"><div class="lbl">Outstanding Invoices</div><div class="val warn" id="kInv">—</div><div class="foot">10 · awaiting field ticket</div></div>
@@ -188,6 +188,8 @@ const dailyCharges = [
  {date:"06/29",ticket:"FT 06/29",item:"1.3.8",desc:"Per Diem",basis:"",cat:"Personnel",qty:7,rate:250},
  {date:"06/29",ticket:"FT 06/29",item:"2.4.3",desc:"Gyro While Drilling Service",basis:"Standby",cat:"Equipment & Services",qty:1,rate:10800},
  {date:"06/29",ticket:"FT 06/29",item:"3.1.1",desc:"Daily Rate Package",basis:"",cat:"ReelWell",qty:1,rate:15800},
+ {date:"06/29",ticket:"FT 06/29",item:"3.1.5",desc:"ReelWell Field Engineer Flight",basis:"",cat:"ReelWell",qty:1,rate:816.04},
+ {date:"06/29",ticket:"FT 06/29",item:"3.1.6",desc:"Reelwell Field Engineer Per Diem",basis:"",cat:"ReelWell",qty:4,rate:200},
  {date:"06/30",ticket:"FT 06/30",item:"1.3.1",desc:"Intercept Specialist",basis:"Operating",cat:"Personnel",qty:2,rate:7000},
  {date:"06/30",ticket:"FT 06/30",item:"1.3.3",desc:"Ranging Specialist",basis:"Operating",cat:"Personnel",qty:1,rate:5000},
  {date:"06/30",ticket:"FT 06/30",item:"1.3.4",desc:"Ranging Engineer",basis:"Operating",cat:"Personnel",qty:1,rate:3500},
@@ -200,6 +202,8 @@ const dailyCharges = [
  {date:"06/30",ticket:"FT 06/30",item:"2.6.17",desc:"Thread Inspection",basis:"",cat:"Directional",qty:4,rate:225},
  {date:"06/30",ticket:"FT 06/30",item:"2.6.18",desc:"Lithium Battery",basis:"",cat:"Directional",qty:1,rate:1875},
  {date:"06/30",ticket:"FT 06/30",item:"3.1.1",desc:"Daily Rate Package",basis:"",cat:"ReelWell",qty:1,rate:15800},
+ {date:"06/30",ticket:"FT 06/30",item:"3.1.6",desc:"Reelwell Field Engineer Per Diem",basis:"",cat:"ReelWell",qty:4,rate:200},
+ {date:"06/30",ticket:"FT 06/30",item:"None",desc:"Reelwell Field Engineer Mileage",basis:"",cat:"ReelWell",qty:1868,rate:0.8},
  {date:"07/01",ticket:"FT 07/01",item:"1.3.1",desc:"Intercept Specialist",basis:"Operating",cat:"Personnel",qty:2,rate:7000},
  {date:"07/01",ticket:"FT 07/01",item:"1.3.3",desc:"Ranging Specialist",basis:"Operating",cat:"Personnel",qty:2,rate:5000},
  {date:"07/01",ticket:"FT 07/01",item:"1.3.4",desc:"Ranging Engineer",basis:"Operating",cat:"Personnel",qty:2,rate:3500},
@@ -214,6 +218,8 @@ const dailyCharges = [
  {date:"07/01",ticket:"FT 07/01",item:"2.6.17",desc:"Thread Inspection",basis:"",cat:"Directional",qty:2,rate:225},
  {date:"07/01",ticket:"FT 07/01",item:"2.6.18",desc:"Lithium Battery",basis:"",cat:"Directional",qty:2,rate:1875},
  {date:"07/01",ticket:"FT 07/01",item:"3.1.1",desc:"Daily Rate Package",basis:"",cat:"ReelWell",qty:1,rate:15800},
+ {date:"07/01",ticket:"FT 07/01",item:"3.1.6",desc:"Reelwell Field Engineer Per Diem",basis:"",cat:"ReelWell",qty:4,rate:200},
+ {date:"07/01",ticket:"FT 07/01",item:"None",desc:"Reelwell Field Engineer Mileage",basis:"",cat:"ReelWell",qty:136,rate:0.8},
  {date:"07/02",ticket:"FT 07/02",item:"1.3.1",desc:"Intercept Specialist",basis:"Operating",cat:"Personnel",qty:2,rate:7000},
  {date:"07/02",ticket:"FT 07/02",item:"1.3.3",desc:"Ranging Specialist",basis:"Operating",cat:"Personnel",qty:2,rate:5000},
  {date:"07/02",ticket:"FT 07/02",item:"1.3.4",desc:"Ranging Engineer",basis:"Operating",cat:"Personnel",qty:2,rate:3500},
@@ -228,6 +234,8 @@ const dailyCharges = [
  {date:"07/02",ticket:"FT 07/02",item:"2.6.12",desc:"UBHO Sub Rental",basis:"",cat:"Directional",qty:1,rate:80},
  {date:"07/02",ticket:"FT 07/02",item:"2.6.16",desc:"Ditch Magnets",basis:"",cat:"Directional",qty:3,rate:75},
  {date:"07/02",ticket:"FT 07/02",item:"3.1.1",desc:"Daily Rate Package",basis:"",cat:"ReelWell",qty:1,rate:15800},
+ {date:"07/02",ticket:"FT 07/02",item:"3.1.6",desc:"Reelwell Field Engineer Per Diem",basis:"",cat:"ReelWell",qty:4,rate:200},
+ {date:"07/02",ticket:"FT 07/02",item:"None",desc:"Reelwell Field Engineer Mileage",basis:"",cat:"ReelWell",qty:136,rate:0.8},
  {date:"07/03",ticket:"FT 07/03",item:"1.3.1",desc:"Intercept Specialist",basis:"Operating",cat:"Personnel",qty:2,rate:7000},
  {date:"07/03",ticket:"FT 07/03",item:"1.3.3",desc:"Ranging Specialist",basis:"Operating",cat:"Personnel",qty:2,rate:5000},
  {date:"07/03",ticket:"FT 07/03",item:"1.3.4",desc:"Ranging Engineer",basis:"Operating",cat:"Personnel",qty:2,rate:3500},
@@ -243,6 +251,58 @@ const dailyCharges = [
  {date:"07/03",ticket:"FT 07/03",item:"2.6.14",desc:"Float Valve",basis:"",cat:"Directional",qty:1,rate:775},
  {date:"07/03",ticket:"FT 07/03",item:"2.6.16",desc:"Ditch Magnets",basis:"",cat:"Directional",qty:3,rate:75},
  {date:"07/03",ticket:"FT 07/03",item:"3.1.1",desc:"Daily Rate Package",basis:"",cat:"ReelWell",qty:1,rate:15800},
+ {date:"07/03",ticket:"FT 07/03",item:"3.1.6",desc:"Reelwell Field Engineer Per Diem",basis:"",cat:"ReelWell",qty:4,rate:200},
+ {date:"07/03",ticket:"FT 07/03",item:"None",desc:"Reelwell Field Engineer Mileage",basis:"",cat:"ReelWell",qty:136,rate:0.8},
+ {date:"07/04",ticket:"FT 07/04",item:"1.3.1",desc:"Intercept Specialist",basis:"Operating",cat:"Personnel",qty:2,rate:7000},
+ {date:"07/04",ticket:"FT 07/04",item:"1.3.3",desc:"Ranging Specialist",basis:"Operating",cat:"Personnel",qty:2,rate:5000},
+ {date:"07/04",ticket:"FT 07/04",item:"1.3.4",desc:"Ranging Engineer",basis:"Operating",cat:"Personnel",qty:2,rate:3500},
+ {date:"07/04",ticket:"FT 07/04",item:"1.3.5",desc:"Wireline Gyro Survey Engineer",basis:"Standby",cat:"Personnel",qty:1,rate:1237.5},
+ {date:"07/04",ticket:"FT 07/04",item:"1.3.6",desc:"M/L/Gyro/Ranging-WD Engineer",basis:"Operating",cat:"Personnel",qty:2,rate:1500},
+ {date:"07/04",ticket:"FT 07/04",item:"1.3.7",desc:"Directional Driller",basis:"Operating",cat:"Personnel",qty:2,rate:1500},
+ {date:"07/04",ticket:"FT 07/04",item:"1.3.8",desc:"Per Diem",basis:"",cat:"Personnel",qty:10,rate:250},
+ {date:"07/04",ticket:"FT 07/04",item:"2.4.2",desc:"Wired Pipe Drilling (DeadAhead) (GWD, Gamma, Ranging, MWD)",basis:"Standby",cat:"Equipment & Services",qty:1,rate:36000},
+ {date:"07/04",ticket:"FT 07/04",item:"2.4.4",desc:"Gyro Wireline Survey Service",basis:"Standby",cat:"Equipment & Services",qty:1,rate:5000},
+ {date:"07/04",ticket:"FT 07/04",item:"2.4.5",desc:"7 Conductor Open Hole Wireline Truck",basis:"Standby",cat:"Equipment & Services",qty:1,rate:3300},
+ {date:"07/04",ticket:"FT 07/04",item:"2.6.16",desc:"Ditch Magnets",basis:"",cat:"Directional",qty:3,rate:75},
+ {date:"07/04",ticket:"FT 07/04",item:"3.1.1",desc:"Daily Rate Package",basis:"",cat:"ReelWell",qty:1,rate:15800},
+ {date:"07/04",ticket:"FT 07/04",item:"3.1.6",desc:"Reelwell Field Engineer Per Diem",basis:"",cat:"ReelWell",qty:4,rate:200},
+ {date:"07/04",ticket:"FT 07/04",item:"None",desc:"Reelwell Field Engineer Mileage",basis:"",cat:"ReelWell",qty:136,rate:0.8},
+ {date:"07/05",ticket:"FT 07/05",item:"1.3.1",desc:"Intercept Specialist",basis:"Operating",cat:"Personnel",qty:2,rate:7000},
+ {date:"07/05",ticket:"FT 07/05",item:"1.3.3",desc:"Ranging Specialist",basis:"Operating",cat:"Personnel",qty:2,rate:5000},
+ {date:"07/05",ticket:"FT 07/05",item:"1.3.4",desc:"Ranging Engineer",basis:"Operating",cat:"Personnel",qty:2,rate:3500},
+ {date:"07/05",ticket:"FT 07/05",item:"1.3.5",desc:"Wireline Gyro Survey Engineer",basis:"Standby",cat:"Personnel",qty:1,rate:1237.5},
+ {date:"07/05",ticket:"FT 07/05",item:"1.3.6",desc:"M/L/Gyro/Ranging-WD Engineer",basis:"Operating",cat:"Personnel",qty:2,rate:1500},
+ {date:"07/05",ticket:"FT 07/05",item:"1.3.7",desc:"Directional Driller",basis:"Operating",cat:"Personnel",qty:2,rate:1500},
+ {date:"07/05",ticket:"FT 07/05",item:"1.3.8",desc:"Per Diem",basis:"",cat:"Personnel",qty:10,rate:250},
+ {date:"07/05",ticket:"FT 07/05",item:"2.4.2",desc:"Wired Pipe Drilling (DeadAhead) (GWD, Gamma, Ranging, MWD)",basis:"Standby",cat:"Equipment & Services",qty:1,rate:36000},
+ {date:"07/05",ticket:"FT 07/05",item:"2.4.4",desc:"Gyro Wireline Survey Service",basis:"Standby",cat:"Equipment & Services",qty:1,rate:5000},
+ {date:"07/05",ticket:"FT 07/05",item:"2.4.5",desc:"7 Conductor Open Hole Wireline Truck",basis:"Standby",cat:"Equipment & Services",qty:1,rate:3300},
+ {date:"07/05",ticket:"FT 07/05",item:"2.6.15",desc:"Wireline Re-Entry Sub",basis:"",cat:"Directional",qty:1,rate:385},
+ {date:"07/05",ticket:"FT 07/05",item:"2.6.16",desc:"Ditch Magnets",basis:"",cat:"Directional",qty:3,rate:75},
+ {date:"07/05",ticket:"FT 07/05",item:"3.1.1",desc:"Daily Rate Package",basis:"",cat:"ReelWell",qty:1,rate:15800},
+ {date:"07/05",ticket:"FT 07/05",item:"3.1.6",desc:"Reelwell Field Engineer Per Diem",basis:"",cat:"ReelWell",qty:4,rate:200},
+ {date:"07/05",ticket:"FT 07/05",item:"None",desc:"Reelwell Field Engineer Mileage",basis:"",cat:"ReelWell",qty:136,rate:0.8},
+ {date:"07/06",ticket:"FT 07/06",item:"1.3.1",desc:"Intercept Specialist",basis:"Operating",cat:"Personnel",qty:2,rate:7000},
+ {date:"07/06",ticket:"FT 07/06",item:"1.3.3",desc:"Ranging Specialist",basis:"Operating",cat:"Personnel",qty:2,rate:5000},
+ {date:"07/06",ticket:"FT 07/06",item:"1.3.4",desc:"Ranging Engineer",basis:"Operating",cat:"Personnel",qty:2,rate:3500},
+ {date:"07/06",ticket:"FT 07/06",item:"1.3.5",desc:"Wireline Gyro Survey Engineer",basis:"Standby",cat:"Personnel",qty:1,rate:1237.5},
+ {date:"07/06",ticket:"FT 07/06",item:"1.3.6",desc:"M/L/Gyro/Ranging-WD Engineer",basis:"Operating",cat:"Personnel",qty:2,rate:1500},
+ {date:"07/06",ticket:"FT 07/06",item:"1.3.7",desc:"Directional Driller",basis:"Operating",cat:"Personnel",qty:2,rate:1500},
+ {date:"07/06",ticket:"FT 07/06",item:"1.3.8",desc:"Per Diem",basis:"",cat:"Personnel",qty:10,rate:250},
+ {date:"07/06",ticket:"FT 07/06",item:"2.1.1",desc:"Demobilization Equipment (each way)",basis:"",cat:"Lump Sum",qty:1,rate:25000},
+ {date:"07/06",ticket:"FT 07/06",item:"2.4.2",desc:"Wired Pipe Drilling (DeadAhead) (GWD, Gamma, Ranging, MWD)",basis:"Operating",cat:"Equipment & Services",qty:1,rate:60000},
+ {date:"07/06",ticket:"FT 07/06",item:"2.4.4",desc:"Gyro Wireline Survey Service",basis:"Standby",cat:"Equipment & Services",qty:1,rate:5000},
+ {date:"07/06",ticket:"FT 07/06",item:"2.4.5",desc:"7 Conductor Open Hole Wireline Truck",basis:"Standby",cat:"Equipment & Services",qty:1,rate:3300},
+ {date:"07/06",ticket:"FT 07/06",item:"2.5.1",desc:"Custom Window Mill 8-1/2\" (Purchase Outright)",basis:"",cat:"Lump Sum",qty:2,rate:29690.13},
+ {date:"07/06",ticket:"FT 07/06",item:"2.6.10",desc:"8\" Gap Sub Rental",basis:"",cat:"Directional",qty:1,rate:335},
+ {date:"07/06",ticket:"FT 07/06",item:"2.6.12",desc:"UBHO Sub Rental",basis:"",cat:"Directional",qty:1,rate:80},
+ {date:"07/06",ticket:"FT 07/06",item:"2.6.15",desc:"Wireline Re-Entry Sub",basis:"",cat:"Directional",qty:1,rate:385},
+ {date:"07/06",ticket:"FT 07/06",item:"2.6.16",desc:"Ditch Magnets",basis:"",cat:"Directional",qty:3,rate:75},
+ {date:"07/06",ticket:"FT 07/06",item:"3.1.1",desc:"Daily Rate Package",basis:"",cat:"ReelWell",qty:1,rate:15800},
+ {date:"07/06",ticket:"FT 07/06",item:"3.1.6",desc:"Reelwell Field Engineer Per Diem",basis:"",cat:"ReelWell",qty:4,rate:200},
+ {date:"07/06",ticket:"FT 07/06",item:"None",desc:"Reelwell Field Engineer Mileage",basis:"",cat:"ReelWell",qty:136,rate:0.8},
+ {date:"07/07",ticket:"FT 07/07",item:"3.1.6",desc:"Reelwell Field Engineer Per Diem",basis:"",cat:"ReelWell",qty:4,rate:200},
+ {date:"07/07",ticket:"FT 07/07",item:"None",desc:"Reelwell Field Engineer Mileage",basis:"",cat:"ReelWell",qty:1868,rate:0.8},
 ];
 // n, period, NS inv, amount, dueDate, stages: [FT-Site, FT-OpenInvoice, Submitted-OpenInvoice, Paid]
 // current state: NONE have an approved field ticket — all sit at stage 1.
